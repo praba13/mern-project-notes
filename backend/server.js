@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(cookieParser()); // 3rd Party Middleware
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes/root'));
+app.use('/users', require('./routes/userRoutes'));
 
 //404 pages
 app.all('*', (req, res) => {
