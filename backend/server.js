@@ -21,8 +21,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser()); // 3rd Party Middleware
 app.use('/', express.static(path.join(__dirname, 'public')));
+
 app.use('/', require('./routes/root'));
 app.use('/users', require('./routes/userRoutes'));
+app.use('/notes', require('./routes/noteRoutes'));
 
 //404 pages
 app.all('*', (req, res) => {
